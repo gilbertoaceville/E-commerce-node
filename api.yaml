@@ -1,0 +1,91 @@
+swagger: "2.0"
+info:
+  title: Products API
+  description: Products API Information
+  version: "1.0"
+  contact:
+    email: gilbertoaceville@gmail.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  servers:
+    -url: http://localhost:9000
+    description: THis is my local Server
+schemes: 
+- http
+paths:
+  /api/products:
+    get:
+      summary: Returns a list of products.
+      description: Use to request all products
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        200:    # status code
+          description: A Successul Response
+          schema: 
+            type: array
+            items: 
+                type: object
+                properties:
+                  id:
+                    type: string
+                  name:
+                    type: string
+                  description:
+                    type: string
+                  dimensions:
+                    type: object
+                    properties:
+                      width: 
+                        type: integer
+                        format: int32
+                      height:
+                        type: integer
+                        format: int32
+                  category:
+                    type: string
+                  price:
+                    type: integer
+                    format: int32
+                  currency:
+                    type: string
+                  imageUrl:
+                    type: string
+                  bestseller:
+                    type: boolean
+                  featured:
+                    type: boolean
+            example: [{"name": "Red Bench", "category": "people", "price": 3.89, "dimensions":{width: 1300,height: 1300}, "currency": "USD", "imageUrl": "https://images.pexels.com/photos/1153369/pexels-photo-1153369.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500", "bestseller": true, "featured": false, "description": "So how did the classical Latin become so incoherent? According to McClintock, a 15th century typesetter likely scrambled part of Cicero's De Finibus in order to provide placeholder text to mockup various fonts for a type specimen book.So how did the classical Latin become so incoherent?"}, {"name": "Mumbai", "category": "cities", "price": 3.89, "dimensions":{width: 1300,height: 1300}, "currency": "USD", "imageUrl": "https://images.pexels.com/photos/9552144/pexels-photo-9552144.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500", "bestseller": true, "featured": false, "description": "So how did the classical Latin become so incoherent? According to McClintock, a 15th century typesetter likely scrambled part of Cicero's De Finibus in order to provide placeholder text to mockup various fonts for a type specimen book.So how did the classical Latin become so incoherent?"}]  
+definitions:
+  Product:
+    type: object
+    properties:
+      name:
+        type: string
+      description:
+        type: string
+      category:
+        type: string
+      price: 
+        type: integer
+        format: int32
+      dimensions:
+        type: object
+        properties:
+          width:
+            type: integer
+            format: int32
+          height:
+            type: integer
+            format: int32
+      currency:
+        type: string
+      imageUrl:
+        type: string
+      bestseller: 
+        type: boolean
+      featured:
+        type: boolean
+      
