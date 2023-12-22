@@ -8,7 +8,7 @@ const cors = require("cors");
 const morgan = require("morgan");
 const helmet = require("helmet");
 const connectDb = require("./config/db");
-const dataRoutes = require("./routes/dataRoutes");
+const dataRoutes = require("./routes/route");
 
 const swaggerJSDocs = YAML.load("./api.yaml");
 const app = express();

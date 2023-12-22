@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { getProducts } = require('../controller/dataCtrl');
+const { getProducts } = require('../controller/product');
 
 
 // GET all products from db
